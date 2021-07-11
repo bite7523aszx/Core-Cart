@@ -1,0 +1,43 @@
+﻿@model IEnumerable<WebSHOPING.Models.Product>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_Layout";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width"/>
+    <title>index</title>
+</head>
+<body>
+    <h1>Products List</h1>
+    <table callpadding="2" cellspacing="2" border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Buy</th>
+            <th></th>
+        </tr>
+        @foreach(var product in ViewBag.products)
+        {
+            <tr>
+                <td>@product.id</td>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+
+                <td align="center">
+                    <a asp-controller="cart" asp-action="buy" asp-route-id="@product.id">But Now
+
+                    </a>
+                </td>
+            </tr>
+        }
+        
+    </table>
+
+</body>
+
+</html>
+
+
